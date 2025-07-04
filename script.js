@@ -112,16 +112,16 @@ function showDownloadModal() {
                     
                     <div class="download-option">
                         <div class="option-icon">
-                            <i class="fab fa-github"></i>
+                            <i class="fab fa-google-drive"></i>
                         </div>
                         <div class="option-details">
-                            <h4>GitHub Releases</h4>
-                            <p>View all releases and changelog</p>
-                            <p class="file-info">Access source code and documentation</p>
+                            <h4>Google Drive</h4>
+                            <p>View file details and download options</p>
+                            <p class="file-info">Access original file and information</p>
                         </div>
                         <button class="btn btn-secondary" onclick="openGitHubReleases()">
-                            <i class="fab fa-github"></i>
-                            View on GitHub
+                            <i class="fab fa-google-drive"></i>
+                            View on Drive
                         </button>
                     </div>
                 </div>
@@ -314,22 +314,25 @@ function closeDownloadModal() {
 }
 
 function downloadAPK() {
-    // Simulate APK download
-    // In a real scenario, this would link to your actual APK file
-    alert('APK download would start here. Please upload your APK file to the GitHub repository and update this link.');
+    // Direct download from Google Drive
+    const googleDriveUrl = 'https://drive.google.com/file/d/1cqwe0lwBylxct_URUgNVc8iCJJqC41Qt/view?usp=sharing';
     
-    // Example of how to trigger actual download:
-    // const link = document.createElement('a');
-    // link.href = './downloads/ColorWise_v1.0.0.apk';
-    // link.download = 'ColorWise_v1.0.0.apk';
-    // link.click();
+    // Convert Google Drive view link to direct download link
+    const fileId = '1cqwe0lwBylxct_URUgNVc8iCJJqC41Qt';
+    const directDownloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+    
+    // Open download in new tab
+    window.open(directDownloadUrl, '_blank');
+    
+    // Show download started toast
+    showToast('Download started! Check your downloads folder.');
     
     closeDownloadModal();
 }
 
 function openGitHubReleases() {
-    // Open GitHub releases page
-    window.open('https://github.com/yourusername/colorwise/releases', '_blank');
+    // Open Google Drive folder for releases
+    window.open('https://drive.google.com/file/d/1cqwe0lwBylxct_URUgNVc8iCJJqC41Qt/view?usp=sharing', '_blank');
     closeDownloadModal();
 }
 
