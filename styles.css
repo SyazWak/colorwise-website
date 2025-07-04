@@ -663,6 +663,48 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.installation-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.option-column {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.option-column h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.option-column ol {
+    margin-bottom: 1rem;
+}
+
+.option-note {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.option-column:first-child .option-note {
+    background: #d4edda;
+    color: #155724;
+}
+
+.option-column:last-child .option-note {
+    background: #fff3cd;
+    color: #856404;
+}
+
 /* Footer */
 .footer {
     background: #2c3e50;
@@ -838,6 +880,11 @@ body {
 
     .download-buttons {
         grid-template-columns: 1fr;
+    }
+    
+    .installation-options {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .phone-mockup {

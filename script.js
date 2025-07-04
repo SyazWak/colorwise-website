@@ -90,38 +90,59 @@ function showDownloadModal() {
     modal.innerHTML = `
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Download ColorWise APK</h3>
+                <h3>Join ColorWise Beta Testing</h3>
                 <button class="modal-close" onclick="closeDownloadModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="download-options">
-                    <div class="download-option">
-                        <div class="option-icon">
-                            <i class="fas fa-download"></i>
+                <div class="beta-info">
+                    <div class="beta-notice">
+                        <div class="notice-icon">
+                            <i class="fas fa-flask"></i>
                         </div>
-                        <div class="option-details">
-                            <h4>Direct Download</h4>
-                            <p>Opens Google Drive - click download button there</p>
-                            <p class="file-info">ColorWise_v1.0.0.apk (45.2 MB)</p>
+                        <div class="notice-text">
+                            <strong>Beta Testing Program:</strong> ColorWise is currently in internal testing on Google Play. 
+                            To access the app, we need to add your email to our testing group.
                         </div>
-                        <button class="btn btn-primary" onclick="downloadAPK()">
-                            <i class="fas fa-download"></i>
-                            Download Now
-                        </button>
                     </div>
                     
-                    <div class="download-option">
-                        <div class="option-icon">
+                    <div class="email-form">
+                        <h4>Request Beta Access</h4>
+                        <p>Enter your email address to join our beta testing program:</p>
+                        <form id="beta-signup-form" onsubmit="submitBetaRequest(event)">
+                            <div class="form-group">
+                                <label for="tester-email">Email Address:</label>
+                                <input type="email" id="tester-email" name="email" required 
+                                       placeholder="your.email@example.com" class="email-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="tester-reason">Why do you want to test ColorWise? (Optional):</label>
+                                <textarea id="tester-reason" name="reason" rows="3" 
+                                         placeholder="Tell us about your interest in color vision assistance..."
+                                         class="reason-input"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary beta-submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Request Beta Access
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="process-steps">
+                        <h4>How it works:</h4>
+                        <ol class="steps-list">
+                            <li>Submit your email using the form above</li>
+                            <li>We'll add you to our Google Play testing group (within 24 hours)</li>
+                            <li>You'll receive an email invitation to join the beta</li>
+                            <li>Accept the invitation and download from Google Play Store</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="alternative-download">
+                        <h4>Alternative: Direct APK Download</h4>
+                        <p>Prefer to download the APK directly? You can also get it from Google Drive:</p>
+                        <button class="btn btn-secondary" onclick="downloadFromGoogleDrive()">
                             <i class="fab fa-google-drive"></i>
-                        </div>
-                        <div class="option-details">
-                            <h4>Google Drive</h4>
-                            <p>View file details and download options</p>
-                            <p class="file-info">Access original file and information</p>
-                        </div>
-                        <button class="btn btn-secondary" onclick="openGitHubReleases()">
-                            <i class="fab fa-google-drive"></i>
-                            View on Drive
+                            Download from Google Drive
                         </button>
                     </div>
                 </div>
@@ -131,8 +152,8 @@ function showDownloadModal() {
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <div class="notice-text">
-                        <strong>Security Notice:</strong> This APK is signed and verified. 
-                        Always download from official sources to ensure your device's security.
+                        <strong>Privacy Notice:</strong> Your email will only be used for beta testing purposes 
+                        and will not be shared with third parties.
                     </div>
                 </div>
             </div>
@@ -198,8 +219,112 @@ function showDownloadModal() {
                 color: #333;
             }
             
-            .modal-body {
+                .modal-body {
                 padding: 2rem;
+            }
+            
+            .beta-info {
+                margin-bottom: 2rem;
+            }
+            
+            .beta-notice {
+                display: flex;
+                gap: 1rem;
+                padding: 1rem;
+                background: #fff3cd;
+                border: 1px solid #ffeaa7;
+                border-radius: 8px;
+                color: #856404;
+                margin-bottom: 2rem;
+            }
+            
+            .email-form {
+                background: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin-bottom: 2rem;
+            }
+            
+            .email-form h4 {
+                margin: 0 0 0.5rem 0;
+                color: #333;
+            }
+            
+            .email-form p {
+                margin: 0 0 1rem 0;
+                color: #666;
+            }
+            
+            .form-group {
+                margin-bottom: 1rem;
+            }
+            
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                color: #333;
+                font-weight: 500;
+            }
+            
+            .email-input, .reason-input {
+                width: 100%;
+                padding: 0.75rem;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: border-color 0.3s ease;
+                box-sizing: border-box;
+            }
+            
+            .email-input:focus, .reason-input:focus {
+                outline: none;
+                border-color: #667eea;
+            }
+            
+            .beta-submit-btn {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+            
+            .process-steps {
+                background: #e8f4fd;
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin-bottom: 2rem;
+            }
+            
+            .process-steps h4 {
+                margin: 0 0 1rem 0;
+                color: #333;
+            }
+            
+            .steps-list {
+                margin: 0;
+                padding-left: 1.5rem;
+                color: #666;
+            }
+            
+            .steps-list li {
+                margin-bottom: 0.5rem;
+                line-height: 1.5;
+            }
+            
+            .alternative-download {
+                background: #f0f8ff;
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+            
+            .alternative-download h4 {
+                margin: 0 0 0.5rem 0;
+                color: #333;
+            }
+            
+            .alternative-download p {
+                margin: 0 0 1rem 0;
+                color: #666;
             }
             
             .download-options {
@@ -313,22 +438,150 @@ function closeDownloadModal() {
     }
 }
 
-function downloadAPK() {
-    // Open Google Drive file in new tab - this works from any domain
+function submitBetaRequest(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('tester-email').value;
+    const reason = document.getElementById('tester-reason').value;
+    
+    // Here you would typically send this to your backend or email service
+    // For now, we'll show instructions to manually add the tester
+    
+    // Create a mailto link for easy email composition
+    const subject = encodeURIComponent('ColorWise Beta Testing Request');
+    const body = encodeURIComponent(`
+New Beta Testing Request:
+
+Email: ${email}
+Reason: ${reason || 'Not provided'}
+
+Please add this email to the Google Play Console internal testing group for ColorWise.
+
+---
+This request was submitted via the ColorWise website.
+    `);
+    
+    // You can replace this email with your actual email
+    const mailtoLink = `mailto:colorwiseapp@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Show success message
+    showSuccessMessage(email);
+    
+    // Optional: Open email client (uncomment if you want this)
+    // window.open(mailtoLink, '_blank');
+}
+
+function showSuccessMessage(email) {
+    const modal = document.querySelector('.download-modal .modal-body');
+    modal.innerHTML = `
+        <div class="success-message">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Request Submitted Successfully!</h3>
+            <p>Thank you for your interest in testing ColorWise. We've received your request for:</p>
+            <div class="submitted-email">${email}</div>
+            
+            <div class="next-steps">
+                <h4>What happens next:</h4>
+                <ol>
+                    <li><strong>Processing:</strong> We'll add your email to our Google Play testing group within 24 hours</li>
+                    <li><strong>Invitation:</strong> You'll receive an email from Google Play Console</li>
+                    <li><strong>Accept:</strong> Click the invitation link to join the beta program</li>
+                    <li><strong>Download:</strong> Install ColorWise directly from the Google Play Store</li>
+                </ol>
+            </div>
+            
+            <div class="contact-info">
+                <p><strong>Questions?</strong> Contact us at: <a href="mailto:colorwiseapp@gmail.com">colorwiseapp@gmail.com</a></p>
+            </div>
+            
+            <button class="btn btn-primary" onclick="closeDownloadModal()">
+                <i class="fas fa-check"></i>
+                Got it!
+            </button>
+        </div>
+        
+        <style>
+            .success-message {
+                text-align: center;
+                padding: 2rem 1rem;
+            }
+            
+            .success-icon {
+                font-size: 4rem;
+                color: #28a745;
+                margin-bottom: 1rem;
+            }
+            
+            .success-message h3 {
+                color: #333;
+                margin-bottom: 1rem;
+            }
+            
+            .submitted-email {
+                background: #e8f4fd;
+                padding: 0.75rem 1rem;
+                border-radius: 8px;
+                font-weight: 600;
+                color: #0066cc;
+                margin: 1rem 0;
+                display: inline-block;
+            }
+            
+            .next-steps {
+                background: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin: 1.5rem 0;
+                text-align: left;
+            }
+            
+            .next-steps h4 {
+                margin: 0 0 1rem 0;
+                color: #333;
+                text-align: center;
+            }
+            
+            .next-steps ol {
+                margin: 0;
+                padding-left: 1.5rem;
+            }
+            
+            .next-steps li {
+                margin-bottom: 0.75rem;
+                line-height: 1.5;
+            }
+            
+            .contact-info {
+                margin: 1.5rem 0;
+                padding: 1rem;
+                background: #e8f4fd;
+                border-radius: 8px;
+            }
+            
+            .contact-info a {
+                color: #0066cc;
+                text-decoration: none;
+            }
+            
+            .contact-info a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    `;
+}
+
+function downloadFromGoogleDrive() {
+    // Open Google Drive file in new tab
     const googleDriveUrl = 'https://drive.google.com/file/d/1cqwe0lwBylxct_URUgNVc8iCJJqC41Qt/view?usp=sharing';
     
-    // Open the Google Drive link directly - users can download from there
+    // Open the Google Drive link directly
     window.open(googleDriveUrl, '_blank');
     
     // Show instruction toast
     showToast('Redirected to Google Drive. Click the download button there.');
     
-    closeDownloadModal();
-}
-
-function openGitHubReleases() {
-    // Open Google Drive folder for releases
-    window.open('https://drive.google.com/file/d/1cqwe0lwBylxct_URUgNVc8iCJJqC41Qt/view?usp=sharing', '_blank');
     closeDownloadModal();
 }
 
