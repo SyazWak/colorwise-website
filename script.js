@@ -464,27 +464,64 @@ This request was submitted via the ColorWise website.
     // You can replace this email with your actual email
     const mailtoLink = `mailto:colorwiseapp@gmail.com?subject=${subject}&body=${body}`;
     
-    // Show success message
-    showSuccessMessage(email);
+    // Show success message first
+    showSuccessMessage(email, mailtoLink);
     
-    // Optional: Open email client (uncomment if you want this)
-    // window.open(mailtoLink, '_blank');
+    // Automatically open email client
+    try {
+        window.open(mailtoLink, '_blank');
+    } catch (error) {
+        console.log('Email client not available');
+    }
 }
 
-function showSuccessMessage(email) {
+function showSuccessMessage(email, mailtoLink) {
     const modal = document.querySelector('.download-modal .modal-body');
     modal.innerHTML = `
         <div class="success-message">
             <div class="success-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
-            <h3>Request Submitted Successfully!</h3>
-            <p>Thank you for your interest in testing ColorWise. We've received your request for:</p>
+            <h3>Beta Request Ready!</h3>
+            <p>Your beta testing request has been prepared for:</p>
             <div class="submitted-email">${email}</div>
+            
+            <div class="email-actions">
+                <h4>Send Your Request:</h4>
+                <p>We've prepared an email for you. Choose how to send it:</p>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="window.open('${mailtoLink}', '_blank')">
+                        <i class="fas fa-envelope"></i>
+                        Open Email Client
+                    </button>
+                    <button class="btn btn-secondary" onclick="copyEmailDetails('${email}')">
+                        <i class="fas fa-copy"></i>
+                        Copy Email Details
+                    </button>
+                </div>
+            </div>
+            
+            <div class="manual-email-info">
+                <h4>Manual Email Option:</h4>
+                <div class="email-details">
+                    <p><strong>To:</strong> colorwiseapp@gmail.com</p>
+                    <p><strong>Subject:</strong> ColorWise Beta Testing Request</p>
+                    <p><strong>Message:</strong></p>
+                    <div class="email-body">
+                        New Beta Testing Request:<br><br>
+                        Email: ${email}<br>
+                        Reason: ${document.getElementById('tester-reason')?.value || 'Not provided'}<br><br>
+                        Please add this email to the Google Play Console internal testing group for ColorWise.<br><br>
+                        ---<br>
+                        This request was submitted via the ColorWise website.
+                    </div>
+                </div>
+            </div>
             
             <div class="next-steps">
                 <h4>What happens next:</h4>
                 <ol>
+                    <li><strong>Send the email:</strong> Use one of the options above to send your request</li>
                     <li><strong>Processing:</strong> We'll add your email to our Google Play testing group within 24 hours</li>
                     <li><strong>Invitation:</strong> You'll receive an email from Google Play Console</li>
                     <li><strong>Accept:</strong> Click the invitation link to join the beta program</li>
@@ -527,6 +564,59 @@ function showSuccessMessage(email) {
                 color: #0066cc;
                 margin: 1rem 0;
                 display: inline-block;
+            }
+            
+            .email-actions {
+                background: #fff3cd;
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin: 1.5rem 0;
+            }
+            
+            .email-actions h4 {
+                margin: 0 0 0.5rem 0;
+                color: #333;
+            }
+            
+            .email-actions p {
+                margin: 0 0 1rem 0;
+                color: #666;
+            }
+            
+            .action-buttons {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .manual-email-info {
+                background: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin: 1.5rem 0;
+                text-align: left;
+            }
+            
+            .manual-email-info h4 {
+                margin: 0 0 1rem 0;
+                color: #333;
+                text-align: center;
+            }
+            
+            .email-details p {
+                margin: 0.5rem 0;
+                color: #333;
+            }
+            
+            .email-body {
+                background: #e9ecef;
+                padding: 1rem;
+                border-radius: 5px;
+                font-family: monospace;
+                font-size: 0.875rem;
+                margin-top: 0.5rem;
+                white-space: pre-line;
             }
             
             .next-steps {
@@ -583,6 +673,25 @@ function downloadFromGoogleDrive() {
     showToast('Redirected to Google Drive. Click the download button there.');
     
     closeDownloadModal();
+}
+
+function copyEmailDetails(email) {
+    const reason = document.getElementById('tester-reason')?.value || 'Not provided';
+    const emailContent = `To: colorwiseapp@gmail.com
+Subject: ColorWise Beta Testing Request
+
+New Beta Testing Request:
+
+Email: ${email}
+Reason: ${reason}
+
+Please add this email to the Google Play Console internal testing group for ColorWise.
+
+---
+This request was submitted via the ColorWise website.`;
+
+    copyToClipboard(emailContent);
+    showToast('Email details copied! You can paste this into any email client.');
 }
 
 // Intersection Observer for animations
