@@ -101,7 +101,7 @@ function showDownloadModal() {
                         </div>
                         <div class="option-details">
                             <h4>Direct Download</h4>
-                            <p>Download the latest APK file directly</p>
+                            <p>Opens Google Drive - click download button there</p>
                             <p class="file-info">ColorWise_v1.0.0.apk (45.2 MB)</p>
                         </div>
                         <button class="btn btn-primary" onclick="downloadAPK()">
@@ -314,18 +314,14 @@ function closeDownloadModal() {
 }
 
 function downloadAPK() {
-    // Direct download from Google Drive
+    // Open Google Drive file in new tab - this works from any domain
     const googleDriveUrl = 'https://drive.google.com/file/d/1cqwe0lwBylxct_URUgNVc8iCJJqC41Qt/view?usp=sharing';
     
-    // Convert Google Drive view link to direct download link
-    const fileId = '1cqwe0lwBylxct_URUgNVc8iCJJqC41Qt';
-    const directDownloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+    // Open the Google Drive link directly - users can download from there
+    window.open(googleDriveUrl, '_blank');
     
-    // Open download in new tab
-    window.open(directDownloadUrl, '_blank');
-    
-    // Show download started toast
-    showToast('Download started! Check your downloads folder.');
+    // Show instruction toast
+    showToast('Redirected to Google Drive. Click the download button there.');
     
     closeDownloadModal();
 }
