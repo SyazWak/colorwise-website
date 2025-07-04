@@ -1,0 +1,40 @@
+{
+  "name": "colorwise-website",
+  "version": "1.0.0",
+  "description": "Official download website for ColorWise - A mobile app for color vision assistance",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000 --open=index.html",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "echo 'Deploy to GitHub Pages via repository settings'"
+  },
+  "keywords": [
+    "colorblind",
+    "color-vision",
+    "accessibility",
+    "mobile-app",
+    "website",
+    "static-site",
+    "github-pages"
+  ],
+  "author": "ColorWise Team",
+  "license": "MIT",
+  "homepage": "https://github.com/yourusername/colorwise-website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/colorwise-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/colorwise-website/issues"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

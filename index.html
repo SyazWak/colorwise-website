@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorWise - ColorBlind Assistant App</title>
+    <meta name="description" content="ColorWise is a Flutter-based mobile app that assists individuals with color vision deficiency through real-time color detection and GPU-accelerated correction.">
+    <meta name="keywords" content="colorblind, color blindness, assistant, app, color detection, accessibility">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/colorwise-website/">
+    <meta property="og:title" content="ColorWise - ColorBlind Assistant App">
+    <meta property="og:description" content="AI-powered mobile app that assists individuals with color vision deficiency through real-time color detection and GPU-accelerated correction.">
+    <meta property="og:image" content="./images/app_icon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/colorwise-website/">
+    <meta property="twitter:title" content="ColorWise - ColorBlind Assistant App">
+    <meta property="twitter:description" content="AI-powered mobile app that assists individuals with color vision deficiency through real-time color detection and GPU-accelerated correction.">
+    <meta property="twitter:image" content="./images/app_icon.png">
+    
+    <link rel="icon" type="image/png" href="./images/app_icon.png">
+    <link rel="apple-touch-icon" href="./images/app_icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="./images/app_icon.png" alt="ColorWise Icon" class="logo-icon">
+                    <span>ColorWise</span>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#download" class="nav-link">Download</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Empowering Color Vision with 
+                        <span class="gradient-text">ColorWise</span>
+                    </h1>
+                    <div class="hero-app-showcase">
+                        <img src="./images/app_icon.png" alt="ColorWise App Icon" class="hero-app-icon">
+                        <div class="app-badges">
+                            <span class="badge">AI-Powered</span>
+                            <span class="badge">GPU-Accelerated</span>
+                            <span class="badge">8 Colorblind Types</span>
+                        </div>
+                    </div>
+                    <p class="hero-description">
+                        A revolutionary Flutter-based mobile app that assists individuals with color vision deficiency 
+                        through real-time AI-powered color detection and GPU-accelerated correction.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#download" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Download APK
+                        </a>
+                        <a href="#features" class="btn btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Colorblind Types Supported</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">60</div>
+                            <div class="stat-label">FPS Performance</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3x</div>
+                            <div class="stat-label">Faster Processing</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-preview">
+                                <div class="app-header">
+                                    <img src="./images/app_icon.png" alt="ColorWise" class="app-icon-small">
+                                    <span class="app-title">ColorWise</span>
+                                </div>
+                                <div class="camera-view"></div>
+                                <div class="color-info">
+                                    <div class="color-circle"></div>
+                                    <span>Detecting: Blue</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Powerful Features</h2>
+                    <p class="section-description">
+                        ColorWise combines cutting-edge technology with intuitive design to provide 
+                        the best color assistance experience.
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3 class="feature-title">Real-time Color Detection</h3>
+                        <p class="feature-description">
+                            Uses advanced machine learning to identify colors through your camera in real-time 
+                            with voice feedback for enhanced accessibility.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="feature-title">GPU-Accelerated Correction</h3>
+                        <p class="feature-description">
+                            Hardware-accelerated color correction filters provide smooth 60 FPS performance 
+                            with 50% better battery efficiency.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="feature-title">AI-Powered Recognition</h3>
+                        <p class="feature-description">
+                            Custom TensorFlow Lite model with HSV fallback system ensures accurate 
+                            color identification in all lighting conditions.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="feature-title">8 Colorblind Types</h3>
+                        <p class="feature-description">
+                            Supports all major types of color blindness including Protanopia, Deuteranopia, 
+                            Tritanopia, and their variations.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h3 class="feature-title">Image Upload Analysis</h3>
+                        <p class="feature-description">
+                            Upload photos from your gallery for detailed color analysis and 
+                            before/after comparison views.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h3 class="feature-title">Accessibility Focused</h3>
+                        <p class="feature-description">
+                            Designed with accessibility principles, featuring voice announcements 
+                            and intuitive touch interfaces.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">About ColorWise</h2>
+                        <p class="about-description">
+                            ColorWise represents a significant advancement in assistive technology for colorblind individuals. 
+                            Our app combines cutting-edge machine learning, efficient GPU processing, and thoughtful user 
+                            experience design to address the challenges of color perception.
+                        </p>
+                        
+                        <div class="tech-stack">
+                            <h3>Built With</h3>
+                            <div class="tech-items">
+                                <span class="tech-item">Flutter</span>
+                                <span class="tech-item">TensorFlow Lite</span>
+                                <span class="tech-item">GPU Acceleration</span>
+                                <span class="tech-item">HSV Color Space</span>
+                                <span class="tech-item">Text-to-Speech</span>
+                            </div>
+                        </div>
+
+                        <div class="colorblind-types">
+                            <h3>Supported Colorblind Types</h3>
+                            <div class="types-grid">
+                                <div class="type-item">
+                                    <strong>Protanopia</strong> - Red blindness
+                                </div>
+                                <div class="type-item">
+                                    <strong>Deuteranopia</strong> - Green blindness
+                                </div>
+                                <div class="type-item">
+                                    <strong>Tritanopia</strong> - Blue blindness
+                                </div>
+                                <div class="type-item">
+                                    <strong>Protanomaly</strong> - Red weakness
+                                </div>
+                                <div class="type-item">
+                                    <strong>Deuteranomaly</strong> - Green weakness
+                                </div>
+                                <div class="type-item">
+                                    <strong>Tritanomaly</strong> - Blue weakness
+                                </div>
+                                <div class="type-item">
+                                    <strong>Achromatopsia</strong> - Complete color blindness
+                                </div>
+                                <div class="type-item">
+                                    <strong>Achromatomaly</strong> - Mild color blindness
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-visual">
+                        <div class="performance-metrics">
+                            <h3>Performance Metrics</h3>
+                            <div class="metric">
+                                <span class="metric-label">Processing Speed</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 95%"></div>
+                                </div>
+                                <span class="metric-value">&lt;16ms latency</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Battery Efficiency</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 85%"></div>
+                                </div>
+                                <span class="metric-value">50% improvement</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">GPU vs CPU Performance</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 100%"></div>
+                                </div>
+                                <span class="metric-value">3x faster</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download">
+            <div class="container">
+                <div class="download-content">
+                    <div class="download-info">
+                        <h2 class="section-title">Download ColorWise</h2>
+                        <p class="download-description">
+                            Get the latest version of ColorWise and start experiencing enhanced color vision today. 
+                            The app is compatible with both Android and iOS devices.
+                        </p>
+                        
+                        <div class="download-features">
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Free to download and use</span>
+                            </div>
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>No ads or in-app purchases</span>
+                            </div>
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Regular updates and improvements</span>
+                            </div>
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Cross-platform compatibility</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="download-buttons">
+                        <div class="download-card">
+                            <div class="download-icon">
+                                <img src="./images/app_icon.png" alt="ColorWise APK" class="download-app-icon">
+                            </div>
+                            <div class="download-details">
+                                <h3>Android APK</h3>
+                                <p>Version 1.0.0 • 45.2 MB</p>
+                                <p class="requirements">Requires Android 6.0+</p>
+                            </div>
+                            <a href="#" class="btn btn-download" id="android-download">
+                                <i class="fas fa-download"></i>
+                                Download APK
+                            </a>
+                        </div>
+                        
+                        <div class="download-card">
+                            <div class="download-icon">
+                                <i class="fab fa-apple"></i>
+                            </div>
+                            <div class="download-details">
+                                <h3>iOS App</h3>
+                                <p>Coming Soon</p>
+                                <p class="requirements">iOS 12.0+ compatible</p>
+                            </div>
+                            <button class="btn btn-disabled" disabled>
+                                <i class="fas fa-clock"></i>
+                                Coming Soon
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="installation-guide">
+                        <h3>Installation Instructions</h3>
+                        <ol>
+                            <li>Download the APK file from the button above</li>
+                            <li>Enable "Unknown Sources" in your Android settings</li>
+                            <li>Open the downloaded APK file to install</li>
+                            <li>Grant camera and microphone permissions when prompted</li>
+                            <li>Start using ColorWise to enhance your color vision!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./images/app_icon.png" alt="ColorWise Icon" class="logo-icon">
+                        <span>ColorWise</span>
+                    </div>
+                    <p class="footer-description">
+                        Empowering individuals with color vision deficiency through innovative technology.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="https://github.com" target="_blank">Source Code</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:support@colorwise.app">Contact</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Report Issues</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ColorWise. Made with ❤️ for the colorblind community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
